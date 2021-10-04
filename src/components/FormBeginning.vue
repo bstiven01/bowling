@@ -1,6 +1,6 @@
 <template>
   <div id="FormBeginning">
-    <h2>BOWLINK 2D</h2>
+    <h2>BOWLING 2D</h2>
     <br>
     <br>
     <label for="fname">Player 1</label>

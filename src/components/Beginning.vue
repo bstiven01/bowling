@@ -1,6 +1,6 @@
 <template>
   <div id="Beginning">
-    <h2>BOWLINK 2D</h2>
+    <h2>BOWLING 2D</h2>
     <br />
     <br />
     <button v-on:click="redirect">New Game</button>

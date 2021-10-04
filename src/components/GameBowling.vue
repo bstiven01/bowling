@@ -49,8 +49,8 @@
       <button v-on:click="runPlay" class="button_play">PLAY</button>
     </div>
 
-    <div id="tables" v-for="(player, i) in players" :key="i"  >
-      <div id="name" :class="[current_player === i ? color_cyan : '' ]">
+    <div id="tables" v-for="(player, i) in players" :key="i">
+      <div id="name" :class="[current_player === i ? color_cyan : '']">
         {{ players[i] }}
       </div>
 
@@ -101,7 +101,7 @@ export default {
       score: this.getScore(),
       variables: this.getVariables(),
       current_player: 0,
-      color_cyan: 'color_cyan'
+      color_cyan: "color_cyan"
     };
   },
   methods: {
@@ -137,16 +137,29 @@ export default {
     },
 
     changePlayer() {
-      let size = this.players.length - 1;
-      this.current_player++;
 
-      if (this.current_player > size) {
-        this.current_player = 0;
+      // validation if the game ends
+      let count = 0;
+      this.score.forEach(element => {
+        if (element.size == 10) {
+          element++;
+        }
+      });
+      if (count >= 2) {
+        alert("Game Over");
+      } else {
+
+        // player change
+        let size = this.players.length - 1;
+        this.current_player++;
+
+        if (this.current_player > size) {
+          this.current_player = 0;
+        }
       }
     },
 
     setTurn(score) {
-      debugger;
       if (!this.variables[this.current_player].repeat) {
         score[this.current_player].push({
           one: this.variables[this.current_player].knocked_down_pins,
@@ -461,7 +474,7 @@ td {
   background-color: cyan;
 }
 
-.color_cyan{
+.color_cyan {
   background-color: cyan;
 }
 </style>
