@@ -141,8 +141,8 @@ export default {
       // validation if the game ends
       let count = 0;
       this.score.forEach(element => {
-        if (element.size == 10) {
-          element++;
+        if (element.length >= 10) {
+          count++;
         }
       });
       if (count >= 2) {
